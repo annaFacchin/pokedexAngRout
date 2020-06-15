@@ -16,6 +16,8 @@ import { TypesDashboardComponent } from './components/types-dashboard/types-dash
 
 import { PokemonService } from './services/pokemon.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { TypeButtonComponent } from './components/type-button/type-button.component';
+import { SelectedListComponent } from './components/selected-list/selected-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ModalComponent,
     SpinnerComponent,
     TypesDashboardComponent,
-    SidebarComponent
+    SidebarComponent,
+    TypeButtonComponent,
+    SelectedListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,24 @@
-<p>types-dashboard works!</p>
+<!-- types list -->
+<div class="container">
+    <div *ngIf="!loading" class="row">
+        <div *ngFor="let typeUrl of typeList" class="col-md-2">
+            <app-type-button [typeUrl]="typeUrl"></app-type-button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- pokedex -->
+    <div *ngIf="!loading" class="row">
+        <div *ngFor="let pkmnUrl of urlList" class="col-md-2">
+            <app-pokemon-card [pkmnUrl]="pkmnUrl"></app-pokemon-card>
+        </div>
+    </div>
+
+    <!-- spinner -->
+    <div *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+
+</div>
