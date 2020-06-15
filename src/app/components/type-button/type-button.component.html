@@ -1,2 +1,19 @@
 <button class='btn custom-button grass' (click)="getByType(typeUrl.name)"> {{ typeUrl.name }} </button>
 
+<div class="container">
+
+    <h2>selected list</h2>
+
+    <!-- pokedex -->
+    <div *ngIf="!loading" class="row">
+        <div *ngFor="let pkmnUrl of selectedList" class="col-md-2">
+            <app-pokemon-card [pkmnUrl]="pkmnUrl"></app-pokemon-card>
+        </div>
+    </div>
+
+    <!-- spinner -->
+    <div *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TypeUrl } from 'src/app/model/type-url';
+import { PokemonUrl } from 'src/app/model/pokemon-url';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class TypesDashboardComponent implements OnInit {
   singleType: TypeUrl;
 
   @Input() typeUrl: TypeUrl;
-  @Input() urlList: TypeUrl[];
+
+  selectedType: string;
+  selectedList: PokemonUrl[];
+  singlePokemon: PokemonUrl;
 
   constructor(private pkmnService: PokemonService) { }
 
@@ -42,4 +46,5 @@ export class TypesDashboardComponent implements OnInit {
       this.loading = false;
     });
   }
+  
 }
