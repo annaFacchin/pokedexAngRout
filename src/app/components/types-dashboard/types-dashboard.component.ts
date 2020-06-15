@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TypeUrl } from 'src/app/model/type-url';
 import { PokemonUrl } from 'src/app/model/pokemon-url';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { TypeService } from 'src/app/services/type.service';
 
 @Component({
   selector: 'app-types-dashboard',
@@ -20,7 +20,7 @@ export class TypesDashboardComponent implements OnInit {
   selectedList: PokemonUrl[];
   singlePokemon: PokemonUrl;
 
-  constructor(private pkmnService: PokemonService) { }
+  constructor(private typeService: TypeService) { }
 
   ngOnInit(): void {
     this.getTypes();
@@ -30,7 +30,7 @@ export class TypesDashboardComponent implements OnInit {
     this.typeList = [];
     this.loading = true;
 
-    let resp = this.pkmnService.getTypes();
+    let resp = this.typeService.getTypes();
     resp.subscribe((data) => {
       for (let i of data["results"]) {
         this.singleType = new TypeUrl();

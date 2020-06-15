@@ -29,15 +29,4 @@ export class PokemonService {
     return resp;
   }
 
-  getTypes() {
-    let resp = this.http.get('https://pokeapi.co/api/v2/type');
-    return resp;
-    
-  }
-
-  getByType(typeName: string) {
-    let resp = this.http.get('https://pokeapi.co/api/v2/type/' + typeName);
-    return resp;
-  }
-
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { TypeService } from 'src/app/services/type.service';
 import { PokemonUrl } from 'src/app/model/pokemon-url';
 import { TypeUrl } from 'src/app/model/type-url';
 
@@ -18,7 +18,7 @@ export class TypeButtonComponent implements OnInit {
 
   @Input() typeUrl: TypeUrl;
 
-  constructor(private pkmnService: PokemonService) { }
+  constructor(private typeService: TypeService) { }
 
   ngOnInit(): void { }
 
@@ -27,7 +27,7 @@ export class TypeButtonComponent implements OnInit {
     this.loading = true;
   
     this.selectedType = typeName;
-    let resp = this.pkmnService.getByType(this.selectedType);
+    let resp = this.typeService.getByType(this.selectedType);
     resp.subscribe((data) => {
 
         for (let i of data["pokemon"]) {
