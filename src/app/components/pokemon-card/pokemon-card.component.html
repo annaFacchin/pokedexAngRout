@@ -1,0 +1,31 @@
+<!-- card -->
+<div id='pkmnCardId' class='card mb-4 shadow-sm pkmn-card light-grass' style='text-align: center;'><br>
+
+    <!-- spinner -->
+    <div *ngIf="loadingCard">
+        <app-spinner></app-spinner>
+    </div>
+
+    <div *ngIf="!loadingCard">
+        <div id='picId' class='pkmn-pic'>
+            <img clas='card-img-top' src="{{singlePkmn.picFront}}">
+        </div>
+    </div>
+    <div class='card-body'>
+        <button id='positionId' class='positionCircle grass' disabled>
+            {{ singlePkmn.id }}
+        </button><br><br>
+        <div>
+            <h5><b> {{ pkmnUrl.name }} </b></h5>
+        </div>
+        <br>
+        <div style='text-align:center'>
+            <button id='detailsBtnId' class='btn custom-button grass' (click)="getDetails(pkmnUrl.url)"
+                data-toggle="modal" [attr.data-target]="'#modalId'+singlePkmn.id">DETAILS</button><br>
+        </div>
+    </div>
+</div>
+
+<!-- modal -->
+    <app-modal [singlePkmn]="singlePkmn">
+    </app-modal>
